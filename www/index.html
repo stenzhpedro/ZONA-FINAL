@@ -179,6 +179,44 @@ small{display:block;margin-top:12px;font-weight:400;font-size:11px;line-height:1
 .rw span{font-size:19px}.rw em{position:absolute;top:0;left:0;font:700 7px system-ui;padding:1px 3px;background:#2f9e5a}.rw.p em{background:#b0307e}
 .rw.ok{border-color:#ffd54a;box-shadow:0 0 8px #ffd54a99;background:#3b3418e6}.rw.dn{opacity:.45}.rw s{position:absolute;right:2px;top:1px;text-decoration:none;font-size:10px}
 </style>
+<style>
+/* ===== v3: lobby estilo Farlight + seleção de personagem estilo Valorant ===== */
+#ent #tp{left:0;right:0;top:0;padding:calc(6px + env(safe-area-inset-top,0px)) calc(12px + env(safe-area-inset-right,0px)) 14px calc(12px + env(safe-area-inset-left,0px));background:linear-gradient(180deg,#050a14d0,#0000)}
+#ent #pme{padding:4px 16px 4px 4px;gap:9px}#ent .av{width:44px;height:44px;font-size:20px}#ent #pme b{font-size:14px}#ent #pme small{font-size:11px}
+#ent #cur{margin:0 0 0 auto;gap:8px}#ent #cur span{font-size:13px;padding:5px 12px;background:#0a1220e0}
+#ent #tp .ib{width:38px;height:38px;font-size:17px;padding:0}
+#ent #lm{top:calc(68px + env(safe-area-inset-top,0px));width:132px}
+#ent #sq1,#ent #chat,#ent #inv,#ent #ntg,#ent #lock,#ent #team,#ent #csg,#ent #csh{position:absolute}
+#ent #sq1{left:calc(12px + env(safe-area-inset-left,0px));bottom:calc(92px + env(safe-area-inset-bottom,0px));padding:7px 14px;font:800 13px system-ui;color:#fff}
+#ent #chat{left:calc(12px + env(safe-area-inset-left,0px));bottom:calc(54px + env(safe-area-inset-bottom,0px));max-width:44vw;padding:8px 14px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ent #chat b{color:#35e0d0;margin-right:6px}
+#ent #inv{left:calc(50% + 74px);top:36%;width:78px;height:104px;display:flex;flex-direction:column;align-items:center;justify-content:center;font:300 34px system-ui;color:#fff;border:2px dashed #ffffff66;background:#0a122090}
+#ent #inv small{font:800 9px system-ui;letter-spacing:1px}
+#ent #ntg{left:50%;transform:translateX(-50%);bottom:calc(56px + env(safe-area-inset-bottom,0px));display:none;align-items:center;gap:8px;padding:5px 16px;font-size:14px;white-space:nowrap}
+#ent[data-s=home] #ntg{display:flex}#ent #ntg em{font:800 11px system-ui;background:#ffb21f;color:#1a0c05;padding:1px 6px;border-radius:3px;font-style:normal}
+#ent #cr{bottom:auto;top:calc(54px + env(safe-area-inset-top,0px));left:50%;right:auto;transform:translateX(-50%);width:auto;text-align:center;font-size:8px;opacity:.5}
+#ent #rk{bottom:calc(54px + env(safe-area-inset-bottom,0px));width:min(34vw,290px)}
+#ent #go{background:linear-gradient(180deg,#ffe066,#ffb300);color:#201400;font-size:19px;letter-spacing:2px;padding:14px 8px;clip-path:none;border-radius:4px;box-shadow:0 0 16px #ffb30088}
+#ent #tb{gap:0;justify-content:center;padding:0 calc(8px + env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) calc(8px + env(safe-area-inset-left,0px));background:linear-gradient(0deg,#050a14f5 55%,#0000)}
+#ent #tb button{flex:1;max-width:150px;font:900 14px system-ui;letter-spacing:1px;padding:13px 4px;color:#e8f1ff;border-bottom:3px solid transparent;border-left:1px solid #ffffff1a}
+#ent #tb button.a{color:#ffd23f;border-bottom-color:#ffd23f;background:linear-gradient(0deg,#ffd23f26,#0000)}
+/* personagens */
+#cs,#ent #lk .tit{display:none}#ent[data-s=char] #cs{display:block;position:absolute;inset:0;pointer-events:none}#ent[data-s=char] #cs>*{pointer-events:auto}
+#ent[data-s=char] #tp,#ent[data-s=char] #tb,#ent[data-s=char] #cr{display:none}
+#ent #csh{left:calc(10px + env(safe-area-inset-left,0px));top:calc(8px + env(safe-area-inset-top,0px));display:flex;gap:8px;align-items:center}
+#ent #csh button{padding:7px 14px;font-size:12px;color:#35e0d0;border-radius:0}#ent #csh span{font:900 13px system-ui;letter-spacing:2px;text-shadow:0 1px 3px #000}
+#ent #csg{left:calc(10px + env(safe-area-inset-left,0px));top:calc(52px + env(safe-area-inset-top,0px));bottom:calc(70px + env(safe-area-inset-bottom,0px));width:min(34vw,290px);display:grid;grid-template-columns:repeat(3,1fr);gap:6px;align-content:start;overflow:auto;padding:6px;background:#0a1220cc;border:1px solid #ffffff26;touch-action:pan-y}
+.ct{height:70px;border:2px solid #ffffff22;background:#0b1626;color:#dbe6f7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:700 9px system-ui;padding:2px;border-radius:0}
+.ct i{width:34px;height:34px;border-radius:50%;border:2px solid #ffffff55}.ct.a{border-color:#ffd23f;box-shadow:0 0 10px #ffd23f88;background:#1d2a44}
+#ent[data-s=char] #lk{display:flex;right:calc(12px + env(safe-area-inset-right,0px));top:calc(10px + env(safe-area-inset-top,0px));bottom:calc(70px + env(safe-area-inset-bottom,0px));transform:none;width:min(32vw,290px);gap:6px;overflow:auto;background:#0a1220cc;padding:12px;touch-action:pan-y}
+#rol{font:800 11px system-ui;letter-spacing:3px;color:#ff6a2b}#dsc{font:400 12px/1.4 system-ui;color:#d2deef}
+#ent #onm{font:900 26px Impact,system-ui;letter-spacing:1px;text-transform:uppercase}#ent #on{justify-content:space-between}
+#ent #lk h5{margin:4px 0 0;font:800 10px system-ui;letter-spacing:3px;color:#9fb3cc}
+#ent[data-s=char] #em{grid-template-columns:1fr 1fr 1fr}#ent #em button{font-size:10px;padding:6px 2px}
+#ent #lock{left:50%;transform:translateX(-50%);bottom:calc(78px + env(safe-area-inset-bottom,0px));padding:11px 52px;background:#ff4655;color:#fff;font:900 20px system-ui;letter-spacing:3px;border:0;border-radius:0;box-shadow:0 0 18px #ff465599}
+#ent #team{left:calc(min(34vw,290px) + 24px);right:calc(min(32vw,290px) + 24px);bottom:calc(8px + env(safe-area-inset-bottom,0px));display:flex;gap:6px;justify-content:center}
+.tm{flex:1;max-width:120px;height:58px;padding:4px 6px;background:#0a1220d8;border:1px solid #ffffff26;font:700 11px system-ui;display:flex;flex-direction:column;justify-content:center}.tm small{font:400 9px system-ui;color:#9fb3cc}.tm.me{border-color:#ffd23f}
+</style>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/libs/fflate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/FBXLoader.js"></script>
@@ -190,7 +228,7 @@ small{display:block;margin-top:12px;font-weight:400;font-size:11px;line-height:1
 <div id="tp"><button id="pme" class="pn"><i class="av" id="av"></i><span><b id="pn"></b><small><span class="lvl" id="lvl"></span><span id="pid"></span></small><div class="xp"><u id="xpb"></u></div></span></button>
 <div id="cur"><span>Kz <b id="kz"></b></span><span>🪙 <b id="gd"></b></span><span>💎 <b id="gm"></b></span></div>
 <button class="pn ib" data-go="con">🏆</button><button class="pn ib" data-go="ami">👥<sup id="fc"></sup></button></div>
-<div id="hm"><div id="lm">
+<div id="hm"><button id="sq1" class="pn" data-soon="Convites">👥 1/4</button><div id="chat" class="pn"><b>💬 MUNDO</b>Squad 4v4 · Parque — a tua equipa está a formar</div><button id="inv" class="pn" data-soon="Convidar">+<small>CONVIDAR</small></button><div id="lm">
 <button class="pn" data-s="pass"><i>⭐</i>PASSE ZONA<em id="pasl"></em></button>
 <button class="pn" data-go="ami"><i>👥</i>AMIGOS</button>
 <button class="pn" data-soon="Loja"><i>🛒</i>LOJA<em>EM BREVE</em></button>
@@ -198,12 +236,13 @@ small{display:block;margin-top:12px;font-weight:400;font-size:11px;line-height:1
 <div id="rk"><div class="pn rc2"><span id="rkE"></span><div><small>PATENTE · SQUAD 4v4</small><b id="rkN"></b><div id="rkS" class="st"></div></div></div>
 <div class="pn rc2"><div><b>SQUAD 4v4 · PARQUE</b><small>4 contra 4 · compras no início</small></div></div>
 <details id="ctl" class="pn"><summary>Controlos</summary><small>Computador: WASD anda · shift corre · espaço salta · rato mira · clique dispara · R recarrega · H cura · 1/2 ou Q troca de arma · F soco (2 seguidos = combo) · C desliza · Z agacha · G pega/guarda o pau · V bate com o pau<br>Telemóvel: joystick à esquerda · arrasta à direita (ou no botão 🔫) para mirar · 🔫 dispara · ⤒ salta · ↻ recarrega · ✚ cura · ⇄ troca de arma · 🥊 soco · ⤓ desliza · botões novos: agachar, pau, bater</small></div></details>
-<button id="go" class="big">JOGAR</button></div></div>
-<div id="lk"><div id="on"><button id="pv">‹</button><span id="onm"></span><button id="nx">›</button></div><div id="em"></div></div>
+<button id="go" class="big">COMEÇAR A PARTIDA</button></div></div>
+<div id="lk"><div id="rol"></div><div id="on"><button id="pv">‹</button><span id="onm"></span><button id="nx">›</button></div><div id="dsc"></div><h5>ANIMAÇÕES</h5><div id="em"></div></div>
+<div id="cs"><div id="csh"><button class="pn" data-s="home">‹ LOBBY</button><span>SQUAD 4v4 · PARQUE — ESCOLHE O TEU PERSONAGEM</span></div><div id="csg"></div><button id="lock" data-s="home">CONFIRMAR</button><div id="team"></div></div>
 <div id="pf"><div id="pm"><button id="bk">‹ LOBBY</button><button data-t="ini" class="a">INÍCIO</button><button data-t="con">CONQUISTAS</button><button data-t="his">HISTÓRICO</button><button data-t="mar">MARCOS</button><button data-t="ami">AMIGOS</button></div><div id="pp"></div></div>
 <div id="ps"><button id="pbk" class="pn">‹ LOBBY</button><div id="pl"></div><div id="pt"></div></div>
-<div id="tb"><button data-s="home" class="a">LOBBY</button><button data-s="char">PERSONAGEM</button><button data-s="prof" data-go="ini">PERFIL</button></div>
-<div id="cr">Árvores: "Tree low poly lowpoly" por 00amza (Sketchfab, CC-BY 4.0).</div><div id="ts"></div></div>
+<div id="tb"><button data-s="home" class="a">🏠</button><button data-s="pass">TEMPORADA</button><button data-s="char">PERSONAGENS</button><button data-soon="Armazém">ARMAZÉM</button><button data-soon="Guilda">GUILDA</button><button data-soon="Loja">LOJA</button></div>
+<div id="ntg" class="pn"></div><div id="cr">Árvores: "Tree low poly lowpoly" por 00amza (Sketchfab, CC-BY 4.0).</div><div id="ts"></div></div>
 <div id="end" class="ov" hidden><div class="card"><h2 id="et"></h2><p id="ep"></p><button id="again" class="big">JOGAR DE NOVO</button> <button id="toLob">LOBBY</button></div></div>
 <div id="hud" hidden>
 <div id="vig"></div><div id="x">+</div>
@@ -1215,7 +1254,7 @@ function mk(o){let g,f,m={},mx,ac={},hand,fore,pose;
   const mark=()=>[...em.children].forEach(b=>b.className=b.dataset.a===emo?'a':'');
   em.innerHTML=EM.map(e=>'<button data-a="'+e[0]+'">'+e[1]+'</button>').join('');mark();
   em.onclick=e=>{const a=e.target.dataset&&e.target.dataset.a;if(a){emo=a;play(lobCh,a);mark()}};
-  const so=i=>{sel=(i+OUT.length)%OUT.length;try{localStorage.setItem('zf_o',sel)}catch(e){}dress(lobCh,OUT[sel]);nm.textContent=OUT[sel].n};so(sel);window.ZF_DRESS=i=>dress(lobCh,OUT[(i%OUT.length+OUT.length)%OUT.length]);
+  const so=i=>{sel=(i+OUT.length)%OUT.length;try{localStorage.setItem('zf_o',sel)}catch(e){}dress(lobCh,OUT[sel]);nm.textContent=OUT[sel].n};so(sel);window.ZF_DRESS=i=>dress(lobCh,OUT[(i%OUT.length+OUT.length)%OUT.length]);window.ZF_CH={n:()=>OUT.length,item:i=>OUT[i],get:()=>sel,set:so};
   $('pv').onclick=()=>so(sel-1);$('nx').onclick=()=>so(sel+1);
   let dg=null;$('ent').addEventListener('pointerdown',e=>{if(!e.target.closest('button'))dg=e.clientX});
   addEventListener('pointermove',e=>{if(dg!==null){rot+=(e.clientX-dg)*.012;dg=e.clientX}});addEventListener('pointerup',()=>dg=null);
@@ -1556,13 +1595,13 @@ const mk=s=>{let a=hs(s);return()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^(a>>>15
 const NM=['Kwanza','Mussulo','Tchizé','Nzinga','Cabinda','Lobito','Zango','Kuito','Maianga','Benguela','Calema','Sombra','Falcão','Pantera','Leão','Ninja'];
 function fr(id){const r=mk(id),g=3+Math.floor(r()*300),w=Math.floor(g*r()*.15),k=Math.floor(g*r()*3),rp=Math.floor(r()*2000),f=P.fr.find(x=>x.id===id);
  return{id,name:(f&&f.n)||NM[Math.floor(r()*NM.length)]+(10+Math.floor(r()*89)),g,w,k,rp,mx:rp+Math.floor(r()*200),xp:Math.floor(g*r()*120)+50,best:w?1:2+Math.floor(r()*18),sk:Math.floor(r()*7),on:mk(id+'o'+new Date().getHours())()>.45,fr:!!f}}
-const ent=$('ent'),L=window.ZF_LC={x:0,t:0,y:.92,ty:.92},TX={home:0,char:.95,prof:-1.8,pass:-.9},TY={pass:.4};let pt='ini',tt=0,view=null;
+const ent=$('ent'),L=window.ZF_LC={x:0,t:0,y:.92,ty:.92},TX={home:0,char:0,prof:-1.8,pass:-.9},TY={pass:.4};let pt='ini',tt=0,view=null;
 const toast=t=>{const e=$('ts');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),1600)};
 const dress=i=>window.ZF_DRESS&&window.ZF_DRESS(i);
 function hdr(){const R=rank(P.rp),a=$('av');a.textContent=P.name.charAt(0).toUpperCase();a.style.background=AVC[sk()];
  $('pn').textContent=P.name;$('lvl').textContent='NV '+lv();$('pid').textContent='ID '+P.id;$('xpb').style.width=(P.xp%200)/2+'%';
  $('kz').textContent=fm(P.kz);$('gd').textContent=fm(P.gd);$('gm').textContent=fm(P.gm);$('fc').textContent=P.fr.length||'';$('pasl').textContent='NV '+lv();
- $('rkE').innerHTML=emb(R.c,40);$('rkN').textContent=R.n;$('rkN').style.color=R.c;$('rkS').innerHTML=stars(R.s)}
+ $('rkE').innerHTML=emb(R.c,40);$('rkN').textContent=R.n;$('rkN').style.color=R.c;$('rkS').innerHTML=stars(R.s);$('ntg').innerHTML=emb(R.c,24)+'<span>[ZF] <b>'+esc(P.name)+'</b></span><em>NV '+lv()+'</em>'}
 function rowf(id,sug){const d=fr(id);return '<div class="pn row"><i class="av2" style="background:'+AVC[d.sk]+'">'+esc(d.name.charAt(0))+'</i><div><b>'+esc(d.name)+'</b><small>NV '+lvx(d.xp)+' · ID '+id+' · <span class="'+(d.on?'on':'off')+'">● '+(d.on?'Online':'Offline')+'</span></small></div><button data-v="'+id+'">VER</button>'+(sug?'<button data-a="'+id+'">+</button>':'<button data-x="'+id+'">✕</button>')+'</div>'}
 function ami(){const sg=[0,1,2].map(i=>String(10000000+hs(P.id+'s'+i)%90000000)).filter(x=>!P.fr.some(f=>f.id===x));
  return '<div class="pn pc"><div style="flex:1"><small>O MEU ID</small><b class="nm">'+P.id+'</b></div><button id="cp">📋 Copiar</button></div>'
@@ -1588,7 +1627,14 @@ function ps(keep){const l=lv(),n0=new Date(),days=Math.ceil((new Date(n0.getFull
  $('pl').innerHTML='<b class="nm">PASSE ZONA</b><small style="font-weight:400;font-size:11px;color:#c9d6e8">⏱ '+days+' dia(s) restantes</small><div class="pn exp"><b>'+l+'</b><div><small style="font-weight:400;font-size:11px">EXP '+P.xp%200+'/200</small><div class="xp"><u style="width:'+(P.xp%200)/2+'%"></u></div></div></div>'+(P.pp?'<div class="pn prm">★ PREMIUM ATIVO</div>':'<button id="buy" class="buy">MELHORAR PASSE · 💎60</button>');
  $('pt').innerHTML=Array.from({length:20},(_,i)=>{const n=i+1,r=RW(n);return '<div class="pcol">'+rw('f',n,r.f,l)+rw('p',n,r.p,l)+'<u>'+n+'</u></div>'}).join('');$('pt').scrollLeft=sl}
 function leave(){view=null;dress(sk())}
-function show(s){if(s!=='prof'&&view)leave();ent.dataset.s=s;L.t=TX[s];L.ty=TY[s]||.92;document.querySelectorAll('#tb button').forEach(b=>b.classList.toggle('a',b.dataset.s===s));hdr();if(s==='prof')pf();if(s==='pass')ps()}
+const ROLES=[['ASSALTO','Entra primeiro nas zonas quentes e abre espaço para a equipa com ritmo agressivo.'],['SUPORTE','Rápido e vistoso: chama a atenção do inimigo e cobre os companheiros.'],['EXPLORADOR','Lê o terreno, antecipa o inimigo e escolhe sempre o melhor ângulo.'],['CONTROLO','Frio e calculista: segura corredores e trava o avanço do adversário.'],['SOMBRA','Ataca de surpresa e desaparece antes de haver resposta.'],['LÍDER','Brilha nas pontas e carrega o ritmo da equipa até ao último round.'],['ELITE','O lutador de Blood Strike: precisão, frieza e disparos limpos.']];
+function csb(){const C=window.ZF_CH;if(!C)return;const s=C.get(),n=C.n(),ic=o=>'radial-gradient(circle at 50% 32%,'+o.sk+' 0 26%,'+o.tp+' 28%)';let h='';
+ for(let i=0;i<n;i++){const o=C.item(i);h+='<button class="ct'+(i===s?' a':'')+'" data-cx="'+i+'"><i style="background:'+ic(o)+'"></i>'+esc(o.n)+'</button>'}
+ $('csg').innerHTML=h;const o=C.item(s),r=ROLES[s%ROLES.length];$('rol').textContent=r[0];$('onm').textContent=o.n;$('onm').style.color=o.tp==='#26262c'||o.tp==='#7a1620'?'#ff8a5c':o.tp;$('dsc').textContent=r[1];
+ $('team').innerHTML='<div class="tm me"><b>'+esc(P.name)+'</b><small>'+esc(o.n)+' · PRONTO</small></div>'+[1,2,3].map(k=>'<div class="tm"><b>Aliado '+k+'</b><small>A escolher…</small></div>').join('')}
+$('csg').addEventListener('click',e=>{const b=e.target.closest('.ct');if(b&&window.ZF_CH){window.ZF_CH.set(+b.dataset.cx);csb()}});
+$('pv').addEventListener('click',()=>setTimeout(csb));$('nx').addEventListener('click',()=>setTimeout(csb));$('lock').addEventListener('click',()=>toast('Personagem confirmado ✔'));
+function show(s){if(s!=='prof'&&view)leave();ent.dataset.s=s;L.t=TX[s];L.ty=TY[s]||.92;document.querySelectorAll('#tb button').forEach(b=>b.classList.toggle('a',b.dataset.s===s));hdr();if(s==='prof')pf();if(s==='pass')ps();if(s==='char')csb()}
 function addF(id){if(!/^\d{6,10}$/.test(id))return toast('ID inválido (6 a 10 números)');if(id===P.id)return toast('Esse é o teu ID');
  if(P.fr.some(f=>f.id===id))return toast('Já é teu amigo');P.fr.push({id});save();hdr();toast('Amigo adicionado: '+fr(id).name);pf()}
 ent.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const D=b.dataset;
