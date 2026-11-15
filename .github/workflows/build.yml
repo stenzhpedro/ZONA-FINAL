@@ -2,7 +2,7 @@ name: Criar APK ZONA FINAL
 
 on:
   push:
-    branches: [main]
+    branches: [principal]
   workflow_dispatch:
 
 jobs:
@@ -18,6 +18,17 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Sincronizar Capacitor Android
+        run: npx cap sync android
 
       - name: Configurar Gradle
         uses: gradle/actions/setup-gradle@v4
