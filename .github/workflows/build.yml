@@ -2,7 +2,7 @@ name: Criar APK ZONA FINAL
 
 on:
   push:
-    branches: [principal]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
           node-version: 22
 
       - name: Instalar dependências
-        run: npm install
+        run: npm ci
 
       - name: Sincronizar Capacitor Android
         run: npx cap sync android
