@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ZONA FINAL</string>
+    <string name="title_activity_main">ZONA FINAL</string>
+    <string name="package_name">com.stenzh.zonafinal</string>
+    <string name="custom_url_scheme">com.stenzh.zonafinal</string>
+</resources>
